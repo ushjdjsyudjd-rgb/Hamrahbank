@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>همراه بانک</title>
-    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="/Hamrahbank/manifest.json">
     <meta name="theme-color" content="#1e40af">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -12,7 +12,7 @@
             font-family: 'Vazir';
             src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
         }
-        body { font-family: 'Tahoma', 'Vazir', sans-serif; background-color: #f8fafc; margin: 0; }
+        body { font-family: 'Tahoma', sans-serif; background-color: #f8fafc; margin: 0; }
         .card-blue { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
     </style>
 </head>
@@ -24,11 +24,11 @@
     </header>
 
     <div class="grid grid-cols-2 gap-4 p-6 -mt-8">
-        <div class="bg-white p-6 rounded-3xl shadow-xl flex flex-col items-center border border-gray-100 cursor-pointer">
+        <div class="bg-white p-6 rounded-3xl shadow-xl flex flex-col items-center border border-gray-100">
             <span class="text-3xl mb-2">💳</span>
             <span class="text-sm font-bold text-gray-700">کارت به کارت</span>
         </div>
-        <div class="bg-white p-6 rounded-3xl shadow-xl flex flex-col items-center border border-gray-100 cursor-pointer">
+        <div class="bg-white p-6 rounded-3xl shadow-xl flex flex-col items-center border border-gray-100">
             <span class="text-3xl mb-2">📱</span>
             <span class="text-sm font-bold text-gray-700">خرید شارژ</span>
         </div>
@@ -48,9 +48,10 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                .then(reg => console.log('PWA Registered!', reg))
-                .catch(err => console.error('PWA Error:', err));
+                // آدرس کامل برای گیت‌هاب پیجز
+                navigator.serviceWorker.register('/Hamrahbank/sw.js')
+                .then(reg => console.log('PWA OK:', reg))
+                .catch(err => console.log('PWA Error:', err));
             });
         }
     </script>
