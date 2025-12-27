@@ -1,16 +1,22 @@
 {
-  {
-  "name": "Hamrah Bank",
+  "name": "Hamrah Bank PWA",
   "short_name": "Bank",
-  "start_url": "/Hamrahbank/index.html",
-  "scope": "/Hamrahbank/",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#1e40af",
+  "background_color": "#f8fafc",
   "theme_color": "#1e40af",
+  "description": "اپلیکیشن همراه بانک شخصی",
   "icons": [
     {
-      "src": "https://via.placeholder.com/192",
+      "src": "https://via.placeholder.com/192/1e40af/ffffff?text=BANK",
       "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://via.placeholder.com/512/1e40af/ffffff?text=BANK",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
