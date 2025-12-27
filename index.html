@@ -4,36 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>همراه بانک</title>
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#1e40af">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: sans-serif; background-color: #f8fafc; }
-        .card { background: linear-gradient(135deg, #1e40af, #3b82f6); }
+        @font-face {
+            font-family: 'Vazir';
+            src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+        }
+        body { font-family: 'Tahoma', 'Vazir', sans-serif; background-color: #f8fafc; }
+        .card-blue { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
     </style>
 </head>
 <body class="pb-20">
-    <div class="p-4 card text-white rounded-b-3xl shadow-lg">
-        <p class="text-sm opacity-80">موجودی فعلی</p>
-        <h1 class="text-3xl font-bold mt-1">۴۵,۰۰۰,۰۰۰ ریال</h1>
+
+    <div class="p-6 card-blue text-white rounded-b-[40px] shadow-2xl text-center">
+        <p class="text-sm opacity-80">موجودی قابل برداشت</p>
+        <h1 class="text-3xl font-bold mt-2 tracking-widest">۴۵,۰۰۰,۰۰۰ <span class="text-lg">ریال</span></h1>
     </div>
 
-    <div class="p-6 grid grid-cols-2 gap-4">
-        <button class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center">
-            <span class="text-2xl">💳</span>
-            <span class="mt-2 text-sm">کارت به کارت</span>
-        </button>
-        <button class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center">
-            <span class="text-2xl">📱</span>
-            <span class="mt-2 text-sm">خرید شارژ</span>
-        </button>
+    <div class="grid grid-cols-2 gap-4 p-6 -mt-8">
+        <div class="bg-white p-6 rounded-3xl shadow-xl flex flex-col items-center border border-gray-100">
+            <span class="text-3xl mb-2">💳</span>
+            <span class="text-sm font-bold text-gray-700">کارت به کارت</span>
+        </div>
+        <div class="bg-white p-6 rounded-3xl shadow-xl flex flex-col items-center border border-gray-100">
+            <span class="text-3xl mb-2">📱</span>
+            <span class="text-sm font-bold text-gray-700">خرید شارژ</span>
+        </div>
+    </div>
+
+    <div class="px-6 mt-4">
+        <h3 class="font-bold text-gray-800 mb-4">تراکنش‌های اخیر</h3>
+        <div class="bg-white rounded-2xl p-4 shadow-sm flex justify-between items-center mb-3">
+            <div class="flex items-center">
+                <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center ml-3 font-bold">↑</div>
+                <p class="text-sm">واریز پایا</p>
+            </div>
+            <p class="text-green-600 font-bold">+۱۰,۰۰۰,۰۰۰</p>
+        </div>
     </div>
 
     <script>
-        // در انتهای فایل index.html
-if ('serviceWorker' in navigator) {
-    // اضافه کردن نام مخزن قبل از sw.js
-    navigator.serviceWorker.register('/Hamrahbank/sw.js'); 
-}
+        // ثبت سرویس ورکر با مسیر صحیح برای گیت‌هاب
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('PWA Ready!', reg))
+                .catch(err => console.log('Error:', err));
+            });
+        }
     </script>
 </body>
 </html>
