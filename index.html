@@ -29,10 +29,11 @@
     </div>
 
     <script>
-        // معرفی فایل شماره ۳ به مرورگر
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
-        }
+        // در انتهای فایل index.html
+if ('serviceWorker' in navigator) {
+    // اضافه کردن نام مخزن قبل از sw.js
+    navigator.serviceWorker.register('/Hamrahbank/sw.js'); 
+}
     </script>
 </body>
 </html>
