@@ -1,7 +1,9 @@
 {
+  {
   "name": "Hamrah Bank",
   "short_name": "Bank",
-  "start_url": "index.html",
+  "start_url": "/Hamrahbank/index.html",
+  "scope": "/Hamrahbank/",
   "display": "standalone",
   "background_color": "#1e40af",
   "theme_color": "#1e40af",
