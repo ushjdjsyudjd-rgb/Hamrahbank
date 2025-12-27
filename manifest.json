@@ -1,0 +1,15 @@
+{
+  "name": "Hamrah Bank",
+  "short_name": "Bank",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#1e40af",
+  "theme_color": "#1e40af",
+  "icons": [
+    {
+      "src": "https://via.placeholder.com/192",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
