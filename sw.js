@@ -1,5 +1,4 @@
-const CACHE_NAME = 'bank-v2';
-// در گیت‌هاب پیجز، لیست فایل‌ها را به صورت نسبی بنویسیم بهتر است
+const CACHE_NAME = 'bank-cache-v3';
 const assets = [
   './',
   './index.html',
@@ -7,17 +6,30 @@ const assets = [
   'https://cdn.tailwindcss.com'
 ];
 
-self.addEventListener('install', event => {
+// نصب و ذخیره فایل‌ها
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
+    caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(assets);
     })
   );
 });
 
-self.addEventListener('fetch', event => {
+// فعال‌سازی و پاکسازی کش قدیمی
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+      );
+    })
+  );
+});
+
+// پاسخگویی به درخواست‌ها
+self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then(response => {
+    caches.match(event.request).then((response) => {
       return response || fetch(event.request);
     })
   );
